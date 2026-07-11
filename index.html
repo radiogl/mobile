@@ -1503,6 +1503,11 @@
     }
 
     lucide.createIcons();
+
+    // POPUP DE BENVINGUDA
+    window.addEventListener('load', () => {
+      kidsPopup('info', '🎉', 'Gràcies!', 'Gràcies per descarregar la nova versió de la Ràdio GL.', null);
+    });
   </script>
  <script>
 if ('serviceWorker' in navigator) {
