@@ -1,6 +1,6 @@
 {
   "name": "Ràdio GL",
-  "short_name": "RGL",
+  "short_name": "Ràdio GL",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#ffffff",
