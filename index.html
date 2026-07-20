@@ -536,12 +536,42 @@
       </div>
     </div>
 
-    <!-- SUPORT PAGE -->
-    <div class="page" id="page-suport">
+    <!-- MES PAGE (menu) -->
+    <div class="page" id="page-mes">
       <div class="flex-1 overflow-y-auto">
         <div class="section-hero h-48 bg-gradient-to-br from-sky-600 to-sky-900 flex flex-col justify-end p-5">
           <div class="section-hero-content">
             <button onclick="goHome()" class="mb-3 w-9 h-9 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
+            <h1 class="text-3xl font-900">⋯ Més</h1>
+            <p class="text-sm text-white/70 mt-1">Suport, comunicació i donatius</p>
+          </div>
+        </div>
+        <div class="p-5 space-y-3">
+          <button onclick="openMesSub('suport')" class="w-full flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:scale-[0.98] transition">
+            <div class="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center shrink-0"><i data-lucide="help-circle" class="w-5 h-5 text-sky-400"></i></div>
+            <div class="flex-1 text-left"><span class="font-700 text-sm">Suport</span><p class="text-xs text-gray-500 mt-0.5">Tutorials, documents i ajuda</p></div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
+          </button>
+          <button onclick="openMesSub('comunicacio')" class="w-full flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:scale-[0.98] transition">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0"><i data-lucide="messages-square" class="w-5 h-5 text-emerald-400"></i></div>
+            <div class="flex-1 text-left"><span class="font-700 text-sm">Comunicació</span><p class="text-xs text-gray-500 mt-0.5">Contacte i grup de novetats</p></div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
+          </button>
+          <button onclick="openMesSub('donatius')" class="w-full flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:scale-[0.98] transition">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0"><i data-lucide="heart-handshake" class="w-5 h-5 text-amber-400"></i></div>
+            <div class="flex-1 text-left"><span class="font-700 text-sm">Donatius</span><p class="text-xs text-gray-500 mt-0.5">Ajuda a la Ràdio GL</p></div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MES > SUPORT SUBPAGE -->
+    <div class="page" id="page-mes-suport">
+      <div class="flex-1 overflow-y-auto">
+        <div class="section-hero h-48 bg-gradient-to-br from-sky-600 to-sky-900 flex flex-col justify-end p-5">
+          <div class="section-hero-content">
+            <button onclick="backToMes()" class="mb-3 w-9 h-9 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
             <h1 class="text-3xl font-900">❓ Suport</h1>
             <p class="text-sm text-white/70 mt-1">Tutorials, documents i ajuda</p>
           </div>
@@ -559,6 +589,55 @@
           <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5">
             <div class="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center shrink-0"><i data-lucide="help-circle" class="w-5 h-5 text-sky-400"></i></div>
             <div class="flex-1"><span class="font-700 text-sm">Preguntes freqüents</span><p class="text-xs text-gray-500 mt-0.5">Respostes a dubtes comuns</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MES > COMUNICACIO SUBPAGE -->
+    <div class="page" id="page-mes-comunicacio">
+      <div class="flex-1 overflow-y-auto">
+        <div class="section-hero h-48 bg-gradient-to-br from-emerald-600 to-emerald-900 flex flex-col justify-end p-5">
+          <div class="section-hero-content">
+            <button onclick="backToMes()" class="mb-3 w-9 h-9 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
+            <h1 class="text-3xl font-900">💬 Comunicació</h1>
+            <p class="text-sm text-white/70 mt-1">Contacta amb nosaltres</p>
+          </div>
+        </div>
+        <div class="p-5 space-y-4">
+          <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+            <p class="text-sm text-gray-300 leading-relaxed">Si voleu informar-nos de dubtes, errors... si teniu propostes o recomanacions, si teniu problemes al entrar o el que sigui, ens podeu enviar correus electrònics al nostre correu oficial.</p>
+            <a href="mailto:radiogl.coll@gmail.com" class="mt-3 flex items-center gap-3 bg-emerald-500/10 rounded-lg p-3 border border-emerald-500/20">
+              <i data-lucide="mail" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              <span class="text-sm font-700 text-emerald-300">radiogl.coll@gmail.com</span>
+            </a>
+          </div>
+          <div class="bg-white/5 rounded-xl p-4 border border-white/5">
+            <p class="text-sm text-gray-300 leading-relaxed">Si voleu ser el primer a estar al corrent de les novetats de la ràdio, us podeu unir a aquest grup informatiu, on només nosaltres podem enviar missatges. Us podeu unir contactant-nos o des d'aquest enllaç.</p>
+            <a href="https://chat.whatsapp.com/ErUhgPnUO9qIgFAkwQWjbq?mode=gi_t" target="_blank" rel="noopener" class="mt-3 flex items-center gap-3 bg-emerald-500/10 rounded-lg p-3 border border-emerald-500/20">
+              <i data-lucide="message-circle" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+              <span class="text-sm font-700 text-emerald-300">Unir-me al grup de WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MES > DONATIUS SUBPAGE -->
+    <div class="page" id="page-mes-donatius">
+      <div class="flex-1 overflow-y-auto">
+        <div class="section-hero h-48 bg-gradient-to-br from-amber-600 to-amber-900 flex flex-col justify-end p-5">
+          <div class="section-hero-content">
+            <button onclick="backToMes()" class="mb-3 w-9 h-9 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
+            <h1 class="text-3xl font-900">🤍 Donatius</h1>
+            <p class="text-sm text-white/70 mt-1">Ajuda a la Ràdio GL</p>
+          </div>
+        </div>
+        <div class="p-5 space-y-3">
+          <p class="text-xs text-gray-500 uppercase tracking-widest font-700">Aviat disponible</p>
+          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5">
+            <div class="w-12 h-12 rounded-xl bg-amber-500/20 flex items-center justify-center shrink-0"><i data-lucide="heart-handshake" class="w-5 h-5 text-amber-400"></i></div>
+            <div class="flex-1"><span class="font-700 text-sm">Properament</span><p class="text-xs text-gray-500 mt-0.5">Aquest contingut s'afegirà més endavant</p></div>
           </div>
         </div>
       </div>
@@ -599,8 +678,8 @@
           <i data-lucide="crown" class="w-5 h-5"></i><span class="text-[8px] font-600">Plus</span>
           <div class="nav-dot w-1 h-1 rounded-full bg-violet-400"></div>
         </button>
-        <button onclick="openSection('suport')" class="bottom-nav-item text-gray-600 flex flex-col items-center gap-0.5 py-1 px-1" id="nav-suport">
-          <i data-lucide="help-circle" class="w-5 h-5"></i><span class="text-[8px] font-600">Suport</span>
+        <button onclick="openSection('mes')" class="bottom-nav-item text-gray-600 flex flex-col items-center gap-0.5 py-1 px-1" id="nav-mes">
+          <i data-lucide="more-horizontal" class="w-5 h-5"></i><span class="text-[8px] font-600">Més</span>
           <div class="nav-dot w-1 h-1 rounded-full bg-[#ff6b35]"></div>
         </button>
       </div>
@@ -684,6 +763,18 @@
       });
       document.getElementById('nav-home').classList.add('active-nav');
       document.getElementById('nav-home').classList.remove('text-gray-600');
+      lucide.createIcons();
+    }
+
+    function openMesSub(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-mes-' + name).classList.add('active');
+      lucide.createIcons();
+    }
+
+    function backToMes() {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-mes').classList.add('active');
       lucide.createIcons();
     }
 
@@ -1506,7 +1597,7 @@
 
     // POPUP DE BENVINGUDA
     window.addEventListener('load', () => {
-      kidsPopup('info', '🎉', 'Gràcies!', 'Gràcies per actualitzar la Ràdio GL.', null);
+      kidsPopup('info', '🎉', 'Gràcies!', 'Gràcies per descarregar la nova versió de la Ràdio GL.', null);
     });
   </script>
  <script>
