@@ -80,7 +80,7 @@
             <p class="mt-1 text-sm text-gray-400 leading-relaxed" id="slogan-text">Estrena el teu dia amb la Ràdio GL</p>
           </div>
           <!-- EN DIRECTE button -->
-          <button onclick="kidsPopup('info','📻','Pròximament!','PRÒXIMAMENT DISPONIBLE A L\'APP. SI VOLEU ESCOLTAR LA RÀDIO GL EN DIRECTE, FEU-HO DES DE LA WEB. GRÀCIES', null)" class="flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 active:scale-95 transition mt-1">
+          <button onclick="kidsPopup('info','📻','Pròximament!','PRÒXIMAMENT DISPONIBLE A L\'APP. SI VOLEU ESCOLTAR LA RÀDIO GL EN DIRECTE, FEU-HO DES DE LA WEB.', null)" class="flex items-center gap-1.5 bg-white/10 border border-white/10 rounded-full px-3 py-1.5 active:scale-95 transition mt-1">
             <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse shrink-0"></span>
             <span class="text-[11px] font-700">EN DIRECTE</span>
           </button>
@@ -587,14 +587,16 @@
             <div class="flex-1 text-left"><span class="font-700 text-sm">Videotutorials</span><p class="text-xs text-gray-500 mt-0.5">Vídeos d'ajuda i explicacions</p></div>
             <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
           </button>
-          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5">
+          <a href="https://drive.google.com/file/d/1p0KKeRg_taYU4P47hQmM8SxKaUNrwVy0/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:scale-[0.98] transition">
             <div class="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center shrink-0"><i data-lucide="book" class="w-5 h-5 text-sky-400"></i></div>
             <div class="flex-1"><span class="font-700 text-sm">Documents</span><p class="text-xs text-gray-500 mt-0.5">Materials i recursos</p></div>
-          </div>
-          <div class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5">
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
+          </a>
+          <button onclick="openMesSub('suport-faq')" class="w-full flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:scale-[0.98] transition">
             <div class="w-12 h-12 rounded-xl bg-sky-500/20 flex items-center justify-center shrink-0"><i data-lucide="help-circle" class="w-5 h-5 text-sky-400"></i></div>
-            <div class="flex-1"><span class="font-700 text-sm">Preguntes freqüents</span><p class="text-xs text-gray-500 mt-0.5">Respostes a dubtes comuns</p></div>
-          </div>
+            <div class="flex-1 text-left"><span class="font-700 text-sm">Preguntes freqüents</span><p class="text-xs text-gray-500 mt-0.5">Respostes a dubtes comuns</p></div>
+            <i data-lucide="chevron-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -640,6 +642,105 @@
             <div class="flex-1"><span class="font-700 text-sm">Com accedir a la RGL PLUS</span></div>
             <i data-lucide="arrow-up-right" class="w-4 h-4 text-gray-500 shrink-0"></i>
           </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MES > SUPORT > FAQ SUBPAGE -->
+    <div class="page" id="page-mes-suport-faq">
+      <div class="flex-1 overflow-y-auto">
+        <div class="section-hero h-48 bg-gradient-to-br from-sky-600 to-sky-900 flex flex-col justify-end p-5">
+          <div class="section-hero-content">
+            <button onclick="openMesSub('suport')" class="mb-3 w-9 h-9 rounded-full bg-black/30 flex items-center justify-center backdrop-blur-sm"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
+            <h1 class="text-3xl font-900 text-white">❔ Preguntes freqüents</h1>
+            <p class="text-sm text-white/70 mt-1">Respostes a dubtes comuns</p>
+          </div>
+        </div>
+        <div class="p-5 space-y-2" id="faq-list">
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">1. Què és aquesta ràdio en línia?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Som una emissora digital que ofereix música, entreteniment i programes variats perquè ens puguis escoltar des de qualsevol lloc del món.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">2. Com puc escoltar la ràdio?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Només has d'accedir al nostre lloc web o a l'aplicació (si en tenim) i prémer el botó "Escolta en directe".</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">3. És gratuït escoltar la ràdio?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Sí, l'emissió és totalment gratuïta i accessible des de qualsevol dispositiu amb connexió a Internet.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">4. Puc escoltar la ràdio des del mòbil?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Sí. Pots escoltar-nos des de qualsevol telèfon intel·ligent, tauleta o ordinador.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">5. Quin tipus de música emeteu?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Oferim una selecció variada de música, així com programes d'entreteniment, entrevistes i espais especials.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">6. Puc demanar una cançó?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Sí. Si el programa ho permet, pots enviar les teves peticions a través dels nostres canals de contacte o les xarxes socials.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">7. Com puc contactar amb la ràdio?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Ens pots escriure mitjançant el formulari de contacte del web, el correu electrònic o les nostres xarxes socials.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">8. Feu programes en directe?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Sí. Disposem de programes en directe i també d'espais gravats que es poden tornar a escoltar.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">9. Puc anunciar el meu negoci a la ràdio?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Sí. Oferim diferents opcions de publicitat i patrocinis. Contacta amb nosaltres per rebre més informació.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">10. Com puc col·laborar amb la ràdio?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Si vols presentar un programa, participar com a col·laborador o proposar un projecte, posa't en contacte amb nosaltres. Estarem encantats de valorar la teva proposta.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">11. Les emissions estan disponibles les 24 hores?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Sí, la nostra emissió està disponible les 24 hores del dia, els 7 dies de la setmana, excepte en casos de manteniment tècnic.</p></div>
+          </div>
+          <div class="faq-item bg-white/5 rounded-xl border border-white/5 overflow-hidden">
+            <button onclick="toggleFaq(this)" class="w-full flex items-center gap-3 p-4 text-left">
+              <span class="flex-1 font-700 text-sm">12. On puc seguir les novetats?</span>
+              <i data-lucide="chevron-down" class="faq-chevron w-4 h-4 text-gray-500 shrink-0 transition-transform"></i>
+            </button>
+            <div class="faq-answer hidden px-4 pb-4"><p class="text-sm opacity-80 leading-relaxed">Segueix-nos a les nostres xarxes socials i visita el nostre web per estar al dia de la programació, les novetats i els esdeveniments.</p></div>
+          </div>
         </div>
       </div>
     </div>
@@ -868,6 +969,15 @@
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-mes-' + name).classList.add('active');
       lucide.createIcons();
+    }
+
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const chevron = item.querySelector('.faq-chevron');
+      const isOpen = !answer.classList.contains('hidden');
+      answer.classList.toggle('hidden');
+      chevron.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
     }
 
     function backToMes() {
@@ -1693,10 +1803,6 @@
 
     lucide.createIcons();
 
-    // POPUP DE BENVINGUDA
-    window.addEventListener('load', () => {
-      kidsPopup('info', '🎉', 'Gràcies!', 'Gràcies per descarregar la nova versió de la Ràdio GL.', null);
-    });
   </script>
  <script>
 if ('serviceWorker' in navigator) {
