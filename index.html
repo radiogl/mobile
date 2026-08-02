@@ -298,13 +298,14 @@
               <div class="flex-1 text-left"><span class="font-900 text-lg text-white">JUGAR</span><p class="text-sm text-white/80 mt-0.5">Jocs interactius</p></div>
               <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
             </button>
-            <div class="flex items-center gap-4 bg-gradient-to-br from-purple-400/50 to-blue-400/50 rounded-3xl p-6 border-4 border-white/10">
-              <div class="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shrink-0 text-3xl">👀</div>
+            <button onclick="openKidsMirar()" class="flex items-center gap-4 bg-gradient-to-br from-purple-400 to-blue-400 rounded-3xl p-6 border-4 border-white/30 active:scale-95 transition transform">
+              <div class="w-16 h-16 rounded-2xl bg-white/40 flex items-center justify-center shrink-0 text-3xl">👀</div>
               <div class="flex-1 text-left">
-                <span class="font-900 text-lg text-white/60">MIRAR</span>
-                <p class="text-sm text-white/40 mt-0.5">🕐 Pròximament...</p>
+                <span class="font-900 text-lg text-white">MIRAR</span>
+                <p class="text-sm text-white/80 mt-0.5">Sèries i dibuixos</p>
               </div>
-            </div>
+              <i data-lucide="arrow-right" class="w-5 h-5 text-white"></i>
+            </button>
             <a href="https://drive.google.com/drive/folders/1L0gSBqxwxI9R_V6oJk5szEB1mj7wInp2?usp=drive_link" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-gradient-to-br from-indigo-400 to-pink-400 rounded-3xl p-6 border-4 border-white/30 active:scale-95 transition transform">
               <div class="w-16 h-16 rounded-2xl bg-white/40 flex items-center justify-center shrink-0 text-3xl">🎵</div>
               <div class="flex-1 text-left"><span class="font-900 text-lg text-white">ESCOLTAR</span><p class="text-sm text-white/80 mt-0.5">Cançons i històries</p></div>
@@ -312,6 +313,33 @@
             </a>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- KIDS MIRAR PAGE (Netflix-style) -->
+    <div class="page" id="page-kids-mirar">
+      <div class="flex-1 overflow-y-auto">
+        <div class="section-hero h-40 bg-gradient-to-br from-purple-400 via-blue-400 to-indigo-500 flex flex-col justify-end p-5">
+          <div class="section-hero-content">
+            <button onclick="backToKids()" class="mb-3 w-9 h-9 rounded-full bg-white/30 flex items-center justify-center backdrop-blur-sm"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
+            <h1 class="text-3xl font-900 text-white">👀 Mirar</h1>
+            <p class="text-sm text-white/90 mt-1">Sèries i dibuixos per a nens</p>
+          </div>
+        </div>
+        <div class="py-5">
+          <div class="grid grid-cols-3 gap-3 px-5" id="mirar-row"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KIDS VIDEO PLAYER PAGE -->
+    <div class="page" id="page-kids-player">
+      <div class="flex-1 flex flex-col p-4">
+        <button onclick="stopKidsPlayer()" class="mb-3 w-9 h-9 rounded-full bg-purple-500/30 flex items-center justify-center shrink-0"><i data-lucide="arrow-left" class="w-4 h-4 text-white"></i></button>
+        <div class="rounded-2xl overflow-hidden bg-black" style="aspect-ratio: 16/9;">
+          <iframe id="kids-player-iframe" width="100%" height="100%" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="display:block;"></iframe>
+        </div>
+        <h2 class="text-lg font-900 mt-4" id="kids-player-title"></h2>
       </div>
     </div>
 
@@ -995,6 +1023,59 @@
     function backToKids() {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-kids').classList.add('active');
+      lucide.createIcons();
+    }
+
+    // KIDS MIRAR (Netflix-style series)
+    const kidsSeries = [
+      { title: "El Xai Shaun", id: "Hzxkplv6sdM" },
+      { title: "Grizzly i els Lemmings", id: "DoYNyKn1pNk" },
+      { title: "Les Tres Bessones", id: "aRedjK0yAME" },
+      { title: "La Pantera Rosa", id: "30MWO8kVOYc" },
+      { title: "Robocar Poli", id: "U6b6EZSR2Kc" },
+      { title: "Una Mà de Contes", id: "UuVP4hqcuUI" },
+      { title: "Tom i Jerry", id: "nm5TZ6bvS94" },
+      { title: "Mic", id: "d3PgntUmw8I" },
+      { title: "Els Barrufets", id: "W-TeDol8wVU" },
+      { title: "PJ Masks", id: "py9uGDARQgY" },
+      { title: "Doraemon", id: "RBZTzGidfKU" },
+      { title: "Pepa la Porqueta", id: "NXGT7pQ5GmU" }
+    ];
+
+    function openKidsMirar() {
+      const row = document.getElementById('mirar-row');
+      if (!row.dataset.loaded) {
+        row.innerHTML = kidsSeries.map(s => `
+          <button onclick="playKidsVideo('${s.id}', '${s.title.replace(/'/g, "\\'")}')" class="text-left active:scale-95 transition">
+            <div class="w-full aspect-video rounded-xl overflow-hidden bg-white/10 border border-white/10 relative">
+              <img src="https://img.youtube.com/vi/${s.id}/hqdefault.jpg" class="w-full h-full object-cover" loading="lazy">
+              <div class="absolute inset-0 flex items-center justify-center bg-black/20">
+                <div class="w-8 h-8 rounded-full bg-white/90 flex items-center justify-center"><i data-lucide="play" class="w-4 h-4 text-black ml-0.5"></i></div>
+              </div>
+            </div>
+            <p class="text-xs font-700 mt-1.5 leading-tight">${s.title}</p>
+          </button>
+        `).join('');
+        row.dataset.loaded = '1';
+        lucide.createIcons();
+      }
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-kids-mirar').classList.add('active');
+      lucide.createIcons();
+    }
+
+    function playKidsVideo(id, title) {
+      document.getElementById('kids-player-iframe').src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+      document.getElementById('kids-player-title').textContent = title;
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-kids-player').classList.add('active');
+      lucide.createIcons();
+    }
+
+    function stopKidsPlayer() {
+      document.getElementById('kids-player-iframe').src = '';
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-kids-mirar').classList.add('active');
       lucide.createIcons();
     }
 
