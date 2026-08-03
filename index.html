@@ -53,6 +53,30 @@
     .section-hero-content { position: relative; z-index: 2; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .joke-spinner { animation: spin 1s linear infinite; display: inline-block; }
+
+    /* SPLASH SCREEN */
+    #splash-screen {
+      position: fixed; inset: 0; z-index: 99999;
+      background: #111111;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    #splash-screen.fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+    @keyframes splashPop {
+      0% { opacity: 0; transform: scale(0.85); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    #splash-logo {
+      width: 120px; height: 120px; border-radius: 28px; object-fit: cover;
+      box-shadow: 0 8px 30px rgba(255,107,53,0.35);
+      animation: splashPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+    #splash-name {
+      margin-top: 20px; font-size: 1.6rem; font-weight: 900; letter-spacing: 0.02em;
+      animation: splashPop 0.6s cubic-bezier(0.34,1.56,0.64,1) both;
+      animation-delay: 0.1s;
+    }
+    #splash-name span { color: #ff6b35; }
   </style>
   <style>body { box-sizing: border-box; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -60,6 +84,11 @@
 <meta name="theme-color" content="#ff6b35">
  </head>
  <body class="h-full bg-[#111111] text-white">
+  <!-- SPLASH SCREEN -->
+  <div id="splash-screen">
+    <img id="splash-logo" src="https://lh3.googleusercontent.com/sitesv/AG8ngQVPXF23-KhHLKlEy8TyWZNB5UFWs_6i2JQ-C1s9W4XaUuZ6RnCmH17Uh9BuYF1-RqrPXCccl8TSgW-IO5GmXHVyMNQ4FPTi9vCnHnS89IT6EvJHEiBmnnmpLnqPzOYWhqGMCJAAJ-ZSDyMI5quVIGNk-QzoQ1dwXrx3mCkdS8bjveHjrhKGPu9rIpHZQq4=w1280" alt="Ràdio GL">
+    <p id="splash-name">Ràdio <span>GL</span></p>
+  </div>
   <!-- KIDS POPUP -->
   <div id="kids-popup-overlay">
     <div id="kids-popup-box">
@@ -1883,6 +1912,14 @@
     }
 
     lucide.createIcons();
+
+    // SPLASH SCREEN
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        if (splash) splash.classList.add('fade-out');
+      }, 2200);
+    });
 
   </script>
  <script>
