@@ -60,21 +60,6 @@
 <meta name="theme-color" content="#ff6b35">
  </head>
  <body class="h-full bg-[#111111] text-white">
-  <!-- FORMAL ANNOUNCEMENT POPUP -->
-  <div id="announce-overlay" class="fixed inset-0 z-[99999] bg-black/70 backdrop-blur-sm flex items-center justify-center p-6" style="display:none;">
-    <div class="w-full max-w-sm bg-[#161616] border border-violet-500/30 rounded-2xl overflow-hidden shadow-2xl">
-      <div class="h-1 bg-gradient-to-r from-violet-500 to-violet-700"></div>
-      <div class="p-6">
-        <div class="flex items-center gap-2 mb-4">
-          <i data-lucide="crown" class="w-5 h-5 text-violet-400"></i>
-          <span class="text-xs font-700 uppercase tracking-widest text-violet-400">Avís RGL Plus</span>
-        </div>
-        <p class="text-sm font-700 leading-relaxed">CONTRIBUEIX A QUE EL LLUÍS COLL MIR NO ES TALLI LA BARBA SI VOLS TENIR UN ACCÉS A LA RGL PLUS DURANT UNA SETMANA!</p>
-        <p class="text-xs opacity-70 leading-relaxed mt-3">Tens fins avui a les 00:00 (hora Quebec).</p>
-        <button id="announce-btn" disabled class="w-full mt-5 bg-violet-600/40 cursor-not-allowed transition rounded-xl py-3 font-700 text-sm">D'acord (<span id="announce-countdown">6</span>)</button>
-      </div>
-    </div>
-  </div>
   <!-- KIDS POPUP -->
   <div id="kids-popup-overlay">
     <div id="kids-popup-box">
@@ -173,6 +158,11 @@
             <div class="flex-1"><span class="font-700 text-sm">Escoltar Música</span><p class="text-xs text-gray-500 mt-0.5">Accedeix als continguts</p></div>
             <i data-lucide="external-link" class="w-4 h-4 text-gray-600"></i>
           </a>
+          <a href="https://formularimusica-rgl.edgeone.dev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:bg-white/10 transition">
+            <div class="w-12 h-12 rounded-xl bg-[#ff6b35]/20 flex items-center justify-center shrink-0"><i data-lucide="music-4" class="w-5 h-5 text-[#ff6b35]"></i></div>
+            <div class="flex-1"><span class="font-700 text-sm">Demanar una cançó</span><p class="text-xs text-gray-500 mt-0.5">Omple el formulari</p></div>
+            <i data-lucide="external-link" class="w-4 h-4 text-gray-600"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -191,6 +181,11 @@
           <a href="https://drive.google.com/drive/folders/1AUoh6ciGT0WS5-CgQC-l1arCZOGcy1BG?usp=drive_link" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:bg-white/10 transition">
             <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0"><i data-lucide="play" class="w-5 h-5 text-emerald-400"></i></div>
             <div class="flex-1"><span class="font-700 text-sm">Escoltar Entrevistes</span><p class="text-xs text-gray-500 mt-0.5">Accedeix als continguts</p></div>
+            <i data-lucide="external-link" class="w-4 h-4 text-gray-600"></i>
+          </a>
+          <a href="https://formularientrevista-rgl.edgeone.dev" target="_blank" rel="noopener noreferrer" class="flex items-center gap-4 bg-white/5 rounded-xl p-4 border border-white/5 active:bg-white/10 transition">
+            <div class="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center shrink-0"><i data-lucide="mic-vocal" class="w-5 h-5 text-emerald-400"></i></div>
+            <div class="flex-1"><span class="font-700 text-sm">Demanar una entrevista</span><p class="text-xs text-gray-500 mt-0.5">Omple el formulari</p></div>
             <i data-lucide="external-link" class="w-4 h-4 text-gray-600"></i>
           </a>
         </div>
@@ -1898,30 +1893,6 @@
     }
 
     lucide.createIcons();
-
-    // FORMAL ANNOUNCEMENT POPUP
-    window.addEventListener('load', () => {
-      const overlay = document.getElementById('announce-overlay');
-      if (!overlay) return;
-      overlay.style.display = 'flex';
-      lucide.createIcons();
-
-      let secondsLeft = 6;
-      const btn = document.getElementById('announce-btn');
-      const countEl = document.getElementById('announce-countdown');
-      const timer = setInterval(() => {
-        secondsLeft--;
-        if (secondsLeft <= 0) {
-          clearInterval(timer);
-          btn.disabled = false;
-          btn.textContent = "D'acord";
-          btn.className = "w-full mt-5 bg-violet-600 hover:bg-violet-500 active:scale-95 transition rounded-xl py-3 font-700 text-sm";
-          btn.onclick = () => { overlay.style.display = 'none'; };
-        } else {
-          countEl.textContent = secondsLeft;
-        }
-      }, 1000);
-    });
 
   </script>
  <script>
