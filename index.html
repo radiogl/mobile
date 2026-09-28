@@ -1,87 +1,50 @@
-```html
-<!DOCTYPE html>
-<html lang="ca">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Actualització necessària</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
 
-    .avis {
-      max-width: 430px;
-      margin: 20px;
-      padding: 30px;
-      background: white;
-      border-radius: 16px;
-      text-align: center;
-      box-shadow: 0 5px 25px rgba(0,0,0,.12);
-    }
-
-    h1 {
-      margin-top: 0;
-    }
-
-    .passos {
-      text-align: left;
-      line-height: 1.6;
-      margin-top: 20px;
-    }
-
-    .boto {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 14px 24px;
-      background: #007aff;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-    }
-
-    .boto:hover {
-      background: #0066d6;
-    }
-  </style>
-</head>
-<body>
-
-  <div class="avis">
-    <h1>Actualització necessària</h1>
-
-    <p>
-      Per continuar utilitzant Ràdio GL, cal actualitzar l'aplicació.
-    </p>
-
-    <div class="passos">
-      <strong>Per actualitzar-la:</strong>
-      <ol>
-        <li>Fes clic al botó <strong>«Actualitzar Ràdio GL»</strong>.</li>
-        <li>A la web, entra a <strong>«Descarregar app»</strong>.</li>
-        <li>Torna a descarregar i instal·la la nova versió de Ràdio GL.</li>
-        <li>Quan hagis comprovat que la nova versió funciona correctament,
-            ja pots eliminar la versió anterior.</li>
-      </ol>
-    </div>
-
-    <a
-      class="boto"
-      href="https://acortar.link/radiogl"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Actualitzar Ràdio GL
-    </a>
-  </div>
-
-</body>
-</html>
-```
+<script src="https://cdn.fluidplayer.com/v3/current/fluidplayer.min.js"></script>
+<video id="video-id"><source src="video.mp4" type="video/mp4" />
+<script>
+    var myFP = fluidPlayer(
+        'video-id',	{
+	"layoutControls": {
+		"controlBar": {
+			"autoHideTimeout": 3,
+			"animated": true,
+			"autoHide": true
+		},
+		"htmlOnPauseBlock": {
+			"html": "",
+			"height": null,
+			"width": null
+		},
+		"autoPlay": false,
+		"mute": true,
+		"allowTheatre": false,
+		"playPauseAnimation": true,
+		"playbackRateEnabled": false,
+		"allowDownload": false,
+		"playButtonShowing": true,
+		"fillToContainer": true,
+		"posterImage": ""
+	},
+	"vastOptions": {
+		"adList": [
+			{
+				"roll": "preRoll",
+				"vastTag": "https://faithfuloccasion.com/ddmYF.zYdpGTNuvGZUGZUE/ce-mH9PuWZQU/l/k/PtT/cd0sMBj/Y/5jMODbUTtiNYzYQDyYNmjbkfwmOLQz",
+				"adText": ""
+			},
+			{
+				"roll": "midRoll",
+				"vastTag": "https://faithfuloccasion.com/ddmYF.zYdpGTNuvGZUGZUE/ce-mH9PuWZQU/l/k/PtT/cd0sMBj/Y/5jMODbUTtiNYzYQDyYNmjbkfwmOLQz",
+				"adText": ""
+			},
+			{
+				"roll": "postRoll",
+				"vastTag": "https://faithfuloccasion.com/ddmYF.zYdpGTNuvGZUGZUE/ce-mH9PuWZQU/l/k/PtT/cd0sMBj/Y/5jMODbUTtiNYzYQDyYNmjbkfwmOLQz",
+				"adText": ""
+			}
+		],
+		"adCTAText": false,
+		"adCTATextPosition": ""
+	}
+});
+</script>
